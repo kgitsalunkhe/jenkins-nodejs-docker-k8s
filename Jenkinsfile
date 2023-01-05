@@ -13,7 +13,7 @@ pipeline {
         
         stage('Build Docker Image....') {
             steps {
-                sh 'docker build -t pdockersavant/devops-demo:latest . '
+                sh 'docker build -t koustubhd/devops-demo:latest . '
             }
         }
         
@@ -22,7 +22,7 @@ pipeline {
                 sh 'docker image ls'
                 sh 'docker logout'
                 sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin docker.io'
-                sh 'docker push pdockersavant/devops-demo:latest'
+                sh 'docker push koustubhd/devops-demo:latest'
             }
         }
         stage('Deploying App to Kubernetes') {
